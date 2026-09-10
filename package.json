@@ -1,0 +1,17 @@
+{
+  "name": "hexk-email-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MellowKraft self-hosted outbound email engagement tracker on Cloudflare Workers + D1.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "node --check src/index.js && node --check public/app.js && node scripts/validate-config.mjs",
+    "db:migrate:local": "wrangler d1 migrations apply mellowkraft-email-tracker --local",
+    "db:migrate:remote": "wrangler d1 migrations apply mellowkraft-email-tracker --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

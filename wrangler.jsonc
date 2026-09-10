@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "mellowkraft-email-tracker",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-10",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mellowkraft-email-tracker",
+      "database_id": "00000000-0000-0000-0000-000000000000", // replace after `wrangler d1 create`
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "DEFAULT_CAMPAIGN": "mellowkraft",
+    "ADMIN_RATE_LIMIT_PER_MINUTE": "120",
+    "PUBLIC_EVENT_RATE_LIMIT_PER_MINUTE": "300"
+  },
+  // Replace [] with [{ "pattern": "track.apoorv.sbs", "custom_domain": true }]
+  // after the Worker works on workers.dev and the domain is ready.
+  "routes": []
+}

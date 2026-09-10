@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Hexk — Email Engagement</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">MELLOWKRAFT / HEXK</p>
+        <h1>Email engagement</h1>
+        <p class="subtle">Supporting signal for follow-up. Replies outrank opens.</p>
+      </div>
+      <div class="actions">
+        <button id="authButton" class="button secondary">API key</button>
+        <button id="refreshButton" class="button">Refresh</button>
+      </div>
+    </header>
+
+    <section class="stats" aria-label="summary">
+      <article><span>Tracked</span><strong id="statTracked">—</strong></article>
+      <article><span>Likely opened</span><strong id="statOpened">—</strong></article>
+      <article><span>Clicked</span><strong id="statClicked">—</strong></article>
+      <article><span>Replied</span><strong id="statReplied">—</strong></article>
+    </section>
+
+    <section class="panel filters">
+      <input id="searchInput" type="search" placeholder="Prospect, company, recipient…" autocomplete="off" />
+      <select id="engagementFilter" aria-label="Engagement filter">
+        <option value="">All engagement</option>
+        <option value="replied">Replied</option>
+        <option value="high_intent">High intent</option>
+        <option value="warm">Warm</option>
+        <option value="opened">Opened</option>
+        <option value="unengaged">Unengaged</option>
+        <option value="bounced">Bounced</option>
+      </select>
+      <label class="check"><input id="clickedOnly" type="checkbox" /> clicked only</label>
+      <label class="check"><input id="unrepliedOnly" type="checkbox" /> unreplied only</label>
+    </section>
+
+    <section class="panel table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Prospect</th>
+            <th>Company</th>
+            <th>Sent</th>
+            <th>Human opens</th>
+            <th>Last open</th>
+            <th>Clicks</th>
+            <th>Reply</th>
+            <th>Bounce</th>
+            <th>Engagement</th>
+          </tr>
+        </thead>
+        <tbody id="emailRows"></tbody>
+      </table>
+      <div id="emptyState" class="empty hidden">No matching emails.</div>
+    </section>
+
+    <p id="statusText" class="status" role="status"></p>
+  </main>
+
+  <dialog id="detailDialog">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">EMAIL DETAIL</p>
+        <h2 id="detailTitle">—</h2>
+        <p id="detailSubtitle" class="subtle">—</p>
+      </div>
+      <button id="closeDialog" class="icon-button" aria-label="Close">×</button>
+    </div>
+    <div id="detailSummary" class="detail-grid"></div>
+    <h3>Timeline</h3>
+    <div id="timeline" class="timeline"></div>
+  </dialog>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
